@@ -6,4 +6,5 @@ ignore = [
     '.gitignore',
     '*.swp',
     'LICENSE',
-    '*.md']
+    '*.md',
+    'xinitrc']
