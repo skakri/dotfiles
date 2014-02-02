@@ -53,8 +53,15 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 
 # Control+larr/rarr
+# note to myself – read keycodes with tput smkx; cat; tput rmkx
+
+# roxterm
 bindkey ';5D' emacs-backward-word
 bindkey ';5C' emacs-forward-word
+
+# urxvt
+bindkey '^[Od' emacs-backward-word
+bindkey '^[Oc' emacs-forward-word
 
 export WORDCHARS=''
 
@@ -72,8 +79,14 @@ function volume-down {
 
 zle -N volume-up
 zle -N volume-down
-bindkey ';5A' volume-up
+
+# roxterm
+bindkey ';5A' volume-up 
 bindkey ';5B' volume-down
+
+# urxvt
+bindkey '^[Oa' volume-up
+bindkey '^[Ob' volume-down
 
 # TODO: split out Master/MPD volume controls?
 
@@ -91,8 +104,13 @@ function song-next {
 zle -N song-prev
 zle -N song-next
 
+# roxterm
 bindkey ';6D' song-prev
 bindkey ';6C' song-next
+
+# urxvt
+bindkey '^[[d' song-prev
+bindkey '^[[c' song-next
 
 #
 # Language settings
