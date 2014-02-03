@@ -11,6 +11,7 @@ numlockx on &> /dev/null
 
 # Misc.
 start-pulseaudio-x11
+xbindkeys
 
 # Initialize awesomeness
 exec awesome

@@ -1,0 +1,6 @@
+[submodule "config/awesome/vicious"]
+	path = config/awesome/vicious
+	url = http://git.sysphere.org/vicious
+[submodule "config/awesome/blingbling"]
+	path = config/awesome/blingbling
+	url = https://github.com/cedlemo/blingbling.git

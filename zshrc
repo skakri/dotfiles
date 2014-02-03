@@ -149,5 +149,59 @@ function rand-ident {
     sudo macchanger -r wlan1
 }
 
+function switch_to_project {
+    cd ~/projects/$1
+}
+
+function v {
+    switch_to_project $1 && . virtualenv/bin/activate
+}
+
+
+function v3 {
+    switch_to_project $1 && . virtualenv3/bin/activate
+}
+
+function p {
+    v $1 && python manage.py shell
+}
+
+function p3 {
+    v3 $1 && python manage.py shell
+}
+
+function activity {
+    FULLNAME=$(git config --get user.name)
+    git-cal --author=${FULLNAME}
+    git-summary
+    git-commits-since yesterday
+    # pivotal_tools show stories --for=${FULLNAME}
+}
+
+
 alias lock="xscreensaver-command -lock"
 alias dl="aria2c"
+
+#
+# PS + GIT
+#
+
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' stagedstr 'M' 
+zstyle ':vcs_info:*' unstagedstr 'M' 
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats \
+  '[%b] %c%u%f'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:*' enable git 
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+    git status --porcelain | grep '??' &> /dev/null ; then
+    hook_com[unstaged]+='%F{1}??%f'
+  fi  
+}
+
+precmd () { vcs_info }
+PROMPT='%F{5}%F{3}%3~ ${vcs_info_msg_0_}%f%# '
