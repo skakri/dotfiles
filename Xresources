@@ -1,4 +1,4 @@
-URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.perl-ext-common: default,matcher,clipboard,vtwheel
 URxvt.termName:                       rxvt-256color
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
