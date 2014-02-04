@@ -5,7 +5,7 @@
 #
 
 export HISTSIZE=5000
-export HISTFILE='$HOME/.zsh_history'
+export HISTFILE="$HOME/.zsh_history"
 
 export SAVEHIST=$HISTSIZE
 setopt inc_append_history   # Commit to histfile after executing
