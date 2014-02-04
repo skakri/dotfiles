@@ -5,7 +5,7 @@
 #
 
 export HISTSIZE=5000
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE='$HOME/.zsh_history'
 
 export SAVEHIST=$HISTSIZE
 setopt inc_append_history   # Commit to histfile after executing
@@ -136,6 +136,8 @@ export EDITOR=nano
 # Functions and aliases
 #
 
+alias ls='ls --color=auto'
+
 function wlan1-30dbm {
     sudo iw reg set BO
     sudo iwconfig wlan1 txpower 30
@@ -179,8 +181,8 @@ function activity {
 }
 
 
-alias lock="xscreensaver-command -lock"
-alias dl="aria2c"
+alias lock='xscreensaver-command -lock'
+alias dl='aria2c'
 
 #
 # PS + GIT
