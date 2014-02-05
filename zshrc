@@ -130,7 +130,7 @@ export PERL_MB_OPT="--install_base $HOME/perl5";
 export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
 export PERL5LIB="$HOME/perl5/lib/perl5/x86_64-linux-thread-multi:$HOME/perl5/lib/perl5";
 export PATH="$HOME/perl5/bin:$HOME/.gem/ruby/2.0.0/bin:$HOME/bin:$PATH";
-export EDITOR=nano
+export EDITOR=vim
 
 #
 # Functions and aliases
@@ -161,7 +161,6 @@ function switch_to_project {
 function v {
     switch_to_project $1 && . virtualenv/bin/activate
 }
-
 
 function v3 {
     switch_to_project $1 && . virtualenv3/bin/activate
