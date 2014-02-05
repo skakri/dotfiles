@@ -4,3 +4,6 @@
 [submodule "config/awesome/blingbling"]
 	path = config/awesome/blingbling
 	url = https://github.com/cedlemo/blingbling.git
+[submodule "urxvt/submodules/urxvt-font-size"]
+	path = urxvt/submodules/urxvt-font-size
+	url = https://github.com/majutsushi/urxvt-font-size.git

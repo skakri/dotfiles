@@ -1,5 +1,8 @@
-URxvt.perl-ext-common: default,matcher,clipboard,vtwheel
+URxvt.perl-ext-common: default,matcher,clipboard,vtwheel,font-size
 URxvt.termName:                       rxvt-256color
+
+! Theme
+
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
 ! URxvt*reverseVideo:                   boolean
@@ -129,3 +132,10 @@ URxvt.boldFont:                       xft:terminus:pixelsize=12
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+! Plugin settings
+
+! Ctrl +/- font size adjustments
+URxvt.keysym.Control-0x2b: perl:font-size:increase
+URxvt.keysym.Control-0x2d: perl:font-size:decrease
+
