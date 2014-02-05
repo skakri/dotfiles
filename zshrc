@@ -137,7 +137,9 @@ export EDITOR=nano
 #
 
 alias ls='ls --color=auto'
-alias ttytter='ttytter -ssl -dostream -ansi -readline='
+
+# TODO: Maybe move this to .ttytterrc?
+alias ttytter='ttytter -dostream -ssl -ansi -readline -hold'
 
 function wlan1-30dbm {
     sudo iw reg set BO
