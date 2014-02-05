@@ -1,6 +1,6 @@
 theme = {}
 
--- theme.font          = "clean 9"
+theme.font          = "Terminus 9"
 
 theme.bg_normal     = "#222222aa"
 theme.bg_focus      = "#66666666"
