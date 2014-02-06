@@ -1,17 +1,20 @@
-#!/bin/zsh
-
 #
-# History
+# Basic setup
 #
 
-export HISTSIZE=5000
-export HISTFILE="$HOME/.zsh_history"
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE=~/.zsh_history
 
-export SAVEHIST=$HISTSIZE
-setopt inc_append_history   # Commit to histfile after executing
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt share_history        # Shared history
+setopt appendhistory share_history notify hist_ignore_all_dups hist_ignore_space
+unsetopt autocd beep extendedglob nomatch
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/skakri/.zshrc'
+
+autoload -Uz compinit
+compinit
 
 #
 # Key setup
