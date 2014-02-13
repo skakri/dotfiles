@@ -134,6 +134,8 @@ export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
 export PERL5LIB="$HOME/perl5/lib/perl5/x86_64-linux-thread-multi:$HOME/perl5/lib/perl5";
 export PATH="$HOME/perl5/bin:$HOME/.gem/ruby/2.0.0/bin:$HOME/bin:$PATH";
 export EDITOR=vim
+export LESS='-R -N'
+export LESSOPEN='|~/.lessfilter %s'
 
 #
 # Functions and aliases
@@ -185,6 +187,9 @@ function activity {
     # pivotal_tools show stories --for=${FULLNAME}
 }
 
+function pngsplease {
+    mkdir -p converted; rm -fI converted/*.png && find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
+}
 
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
