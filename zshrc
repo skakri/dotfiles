@@ -6,7 +6,7 @@ HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 
-setopt appendhistory share_history notify hist_ignore_all_dups hist_ignore_space
+setopt appendhistory share_history notify hist_ignore_all_dups hist_ignore_space interactivecomments
 unsetopt autocd beep extendedglob nomatch
 bindkey -e
 # End of lines configured by zsh-newuser-install
