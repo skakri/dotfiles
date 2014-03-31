@@ -20,6 +20,7 @@ compinit
 # Key setup
 #
 
+bindkey -e
 typeset -A key
 key[Home]=${terminfo[khome]}
 
@@ -193,6 +194,7 @@ function pngsplease {
 
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
+alias spr='google-chrome-unstable --show-paint-rects'
 
 #
 # PS + GIT
