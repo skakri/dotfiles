@@ -9,6 +9,10 @@ setxkbmap -model pc104 -layout lv
 setxkbmap -option "compose:menu"
 numlockx on &> /dev/null
 
+# CapsLock to backspace
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keycode 66 = BackSpace"
+
 # Misc.
 start-pulseaudio-x11
 xbindkeys
