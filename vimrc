@@ -10,6 +10,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 " Bundle 'davidhalter/jedi-vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'kchmck/vim-coffee-script'
 
 call vundle#end()
 
