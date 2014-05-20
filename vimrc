@@ -60,6 +60,11 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :tabp<CR>
 map <F4> :tabn<CR>
 
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
 " Python-mode
 " Activate rope
 " Keys:
