@@ -57,6 +57,8 @@ set noswapfile
 set complete+=k
 
 map <F2> :NERDTreeToggle<CR>
+map <F3> :tabp<CR>
+map <F4> :tabn<CR>
 
 " Python-mode
 " Activate rope
