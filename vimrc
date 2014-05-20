@@ -125,6 +125,13 @@ if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold
 endif
 
+" YouCompleteMe blacklist
+let g:ycm_filetype_blacklist = {
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \ 'latex' : 1
+      \}
+
 augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 120
