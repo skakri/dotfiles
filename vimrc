@@ -11,6 +11,7 @@ Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mattn/emmet-vim'
 
 call vundle#end()
 
@@ -133,6 +134,9 @@ let g:ycm_filetype_blacklist = {
       \ 'text' : 1,
       \ 'latex' : 1
       \}
+
+" Emmet
+let g:user_emmet_leader_key = '<C-]>'
 
 augroup vimrc_autocmds
     autocmd!
