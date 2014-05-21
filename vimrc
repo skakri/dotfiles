@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
-" Bundle 'davidhalter/jedi-vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 
@@ -58,8 +58,9 @@ set noswapfile
 set complete+=k
 
 map <F2> :NERDTreeToggle<CR>
-map <F3> :tabp<CR>
-map <F4> :tabn<CR>
+nmap [34~ :tabn<CR>
+nmap <S-Tab> :tabp<CR>
+nmap <C-t> :tabnew<CR>
 
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
