@@ -2,6 +2,8 @@
 # Basic setup
 #
 
+[[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
+
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
@@ -234,3 +236,5 @@ PROMPT='%F{5}%F{3}%3~ ${vcs_info_msg_0_}%f%# '
 BASE16_SCHEME="monokai"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+[[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
