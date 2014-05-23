@@ -12,6 +12,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/emmet-vim'
+Bundle 'sjl/splice.vim'
 
 call vundle#end()
 
@@ -89,9 +90,10 @@ let g:pymode_rope = 0
 
 " Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_message = 1
 " Auto check on save
-let g:pymode_lint_write = 1
+let g:pymode_lint_on_write = 1
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -138,11 +140,13 @@ let g:ycm_filetype_blacklist = {
 " Emmet
 let g:user_emmet_leader_key = '<C-]>'
 
+hi ColorColumn ctermbg=0
+set colorcolumn=80
+let &colorcolumn="80,".join(range(120,999),",")
+
+
 augroup vimrc_autocmds
     autocmd!
-    " highlight characters past column 120
-    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%120v.*/
+    " autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType python set nowrap
-    augroup END
-
+augroup END
