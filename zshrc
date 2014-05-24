@@ -192,6 +192,17 @@ function pngsplease {
     mkdir -p converted; rm -fI converted/*.png && find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
 }
 
+zipedit(){
+    echo "Usage: zipedit archive.zip folder/file.txt"
+    curdir=$(pwd)
+    unzip "$1" "$2" -d /tmp 
+    cd /tmp
+    vim "$2" && zip --update "$curdir/$1"  "$2" 
+    # remove this line to just keep overwriting files in /tmp
+    rm -f "$2" # or remove -f if you want to confirm
+    cd "$curdir"
+}
+
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
 alias spr='google-chrome-unstable --show-paint-rects'
