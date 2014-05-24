@@ -2,6 +2,8 @@
 # Basic setup
 #
 
+[[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
+
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
@@ -203,6 +205,17 @@ zipedit(){
     cd "$curdir"
 }
 
+function man {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
 alias spr='google-chrome-unstable --show-paint-rects'
@@ -234,3 +247,5 @@ PROMPT='%F{5}%F{3}%3~ ${vcs_info_msg_0_}%f%# '
 BASE16_SCHEME="monokai"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+[[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
