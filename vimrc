@@ -5,7 +5,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
@@ -13,6 +13,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/emmet-vim'
 Bundle 'sjl/splice.vim'
+Bundle 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -51,6 +52,9 @@ set et
 set ts=4
 set sw=4
 set sts=4
+
+" Filetype specific tab settings.
+autocmd BufNewFile,BufReadPost *.coffee setl ts=2 sw=2 sts=2 expandtab
 
 set splitbelow
 set splitright
@@ -122,13 +126,10 @@ let g:jedi#documentation_command = "K"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#show_call_signatures = "1"
 
-" Powerline setup
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+" vim-airline setup
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-
-if has ('gui_running')
-    highlight Pmenu guibg=#cccccc gui=bold
-endif
+let g:airline_powerline_fonts = 1
 
 " YouCompleteMe blacklist
 let g:ycm_filetype_blacklist = {
