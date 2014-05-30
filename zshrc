@@ -216,6 +216,10 @@ function man {
     man "$@"
 }
 
+function f {
+    grep --color=auto -iR "$1" $2
+}
+
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
 alias spr='google-chrome-unstable --show-paint-rects'
