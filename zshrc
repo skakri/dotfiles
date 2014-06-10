@@ -190,6 +190,10 @@ function activity {
     # pivotal_tools show stories --for=${FULLNAME}
 }
 
+function cy { # check yourself before you wreck yourself
+    flake8 --max-complexity 8 $1
+}
+
 function pngsplease {
     mkdir -p converted; rm -fI converted/*.png && find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
 }
