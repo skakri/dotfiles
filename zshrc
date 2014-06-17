@@ -145,6 +145,7 @@ export LESSOPEN='|~/.lessfilter %s'
 #
 
 alias ls='ls --color=auto'
+alias info='pinfo'
 
 # TODO: Maybe move this to .ttytterrc?
 alias ttytter='ttytter -dostream -ssl -ansi -readline -hold'
