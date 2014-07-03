@@ -13,8 +13,8 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#666666"
 
-theme.border_width  = "3"
-theme.border_normal = "#272822"
+theme.border_width  = "2"
+theme.border_normal = "#373832"
 theme.border_focus  = "#75715e"
 theme.border_marked = "#91231c"
 
