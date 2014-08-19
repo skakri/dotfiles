@@ -20,6 +20,7 @@ Awesome:
 Other personalization tweaks
 ============================
 .xinitrc:
+
     setxkbmap -model pc104 -layout lv
     setxkbmap -option "compose:menu"
 
