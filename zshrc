@@ -225,9 +225,30 @@ function f {
     grep --color=auto -iR "$1" $2
 }
 
+ streaming() {
+    INRES="1920x1080"
+    OUTRES="1920x1080"
+    FPS="60" # target FPS
+    GOP="120" # i-frame interval, should be double of FPS, 
+    GOPMIN="60" # min i-frame interval, should be equal to fps, 
+    THREADS="4" # max 6
+    CBR="2000k" # constant bitrate (should be between 1000k - 3000k)
+    QUALITY="ultrafast"  # one of the many FFMPEG preset
+    AUDIO_RATE="44100"
+    STREAM_KEY="$1" # use the terminal command Streaming streamkeyhere to stream your video to twitch or justin
+    SERVER="live-prg" # see http://bashtech.net/twitch/ingest.php for list
+
+    ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f pulse -i default -f flv -ac 2 -ar $AUDIO_RATE \
+    -vcodec libx264 -g $GOP -keyint_min $GOPMIN -b $CBR -minrate $CBR -maxrate $CBR -pix_fmt yuv420p\
+    -s $OUTRES -preset $QUALITY -tune film -acodec libmp3lame -threads $THREADS -strict normal \
+    -bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
+ }
+
 alias lock='xscreensaver-command -lock'
 alias dl='aria2c'
 alias spr='google-chrome-unstable --show-paint-rects'
+alias noblank='xset -dpms; xset s off'
+alias blank='xset +dpms; xset s on'
 
 #
 # PS + GIT
