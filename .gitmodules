@@ -10,3 +10,6 @@
 [submodule "urxvt/submodules/urxvt-perls"]
 	path = urxvt/submodules/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls.git
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git

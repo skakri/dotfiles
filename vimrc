@@ -34,6 +34,10 @@ hi CursorLine   cterm=NONE ctermbg=19
 hi CursorColumn ctermbg=18
 
 
+" Some keys suck on my urxvt setup.
+set backspace=indent,eol,start
+
+
 " Ignores files that match these patterns.
 set wildignore+=*.png
 set wildignore+=*.gif

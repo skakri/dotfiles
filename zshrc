@@ -119,6 +119,12 @@ bindkey '^[[d' song-prev
 bindkey '^[[c' song-next
 
 #
+# Plugins
+#
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#
 # Language settings
 #
 
