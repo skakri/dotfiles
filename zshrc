@@ -125,6 +125,14 @@ bindkey '^[[c' song-next
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
+# Other software
+#
+
+# virtualenvwrapper
+export PROJECT_HOME=~/projects
+[[ -r /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
+
+#
 # Language settings
 #
 
