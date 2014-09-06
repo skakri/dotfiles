@@ -130,7 +130,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # virtualenvwrapper
 export PROJECT_HOME=~/projects
-[[ -r /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
+[[ -x /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
 
 #
 # Language settings
