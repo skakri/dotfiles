@@ -143,7 +143,9 @@ export LC_ALL=lv_LV.utf8
 # Environment variables and quirks
 #
 
-export JAVA_HOME=/opt/java
+#export JAVA_HOME=/opt/java
+export JAVA_HOME=/usr/lib/jvm/default
+#export _JAVA_AWT_WM_NONREPARENTING=1
 export PYCHARM_JDK=/opt/java/jre
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
 export PERL_MB_OPT="--install_base $HOME/perl5";
@@ -287,6 +289,9 @@ zstyle ':vcs_info:*' enable git
 
 precmd () { vcs_info }
 PROMPT='%F{5}%F{3}%3~ ${vcs_info_msg_0_}%f%# '
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    PROMPT="remote // $HOST $PROMPT"
+fi
 
 BASE16_SCHEME="monokai"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
