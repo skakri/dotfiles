@@ -156,6 +156,9 @@ export EDITOR=vim
 export LESS='-R -N'
 export LESSOPEN='|~/.lessfilter %s'
 
+# yaourt/zsh fix? https://github.com/archlinuxfr/yaourt/issues/11#issuecomment-44888428
+ttyctl -f
+
 #
 # Functions and aliases
 #
