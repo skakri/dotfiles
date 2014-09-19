@@ -14,6 +14,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/emmet-vim'
 Bundle 'sjl/splice.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'derekwyatt/vim-scala'
 
 call vundle#end()
 
