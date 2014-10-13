@@ -143,8 +143,6 @@ export LC_ALL=lv_LV.utf8
 # Environment variables and quirks
 #
 
-#export JAVA_HOME=/opt/java
-export JAVA_HOME=/usr/lib/jvm/default
 #export _JAVA_AWT_WM_NONREPARENTING=1
 export PYCHARM_JDK=/opt/java/jre
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
