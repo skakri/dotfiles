@@ -128,9 +128,8 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Other software
 #
 
-# virtualenvwrapper
+# virtualenvwrapper project home.
 export PROJECT_HOME=~/projects
-[[ -x /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
 
 #
 # Language settings
@@ -184,20 +183,16 @@ function switch_to_project {
     cd ~/projects/$1
 }
 
-function v {
-    switch_to_project $1 && . virtualenv/bin/activate
+function activate_project {
+    [[ -x /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh && workon $1
 }
 
-function v3 {
-    switch_to_project $1 && . virtualenv3/bin/activate
+function v {
+    switch_to_project $1 && activate_project $1
 }
 
 function p {
     v $1 && python manage.py shell
-}
-
-function p3 {
-    v3 $1 && python manage.py shell
 }
 
 function activity {
