@@ -2,10 +2,10 @@ theme = {}
 
 theme.font          = "Terminus 9"
 
-theme.bg_normal     = "#222222aa"
-theme.bg_focus      = "#66666666"
-theme.bg_urgent     = "#ff000055"
-theme.bg_minimize   = "#11111166"
+theme.bg_normal     = "#222222"
+theme.bg_focus      = "#666666"
+theme.bg_urgent     = "#ff0000"
+theme.bg_minimize   = "#111111"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#efefef"
@@ -74,21 +74,49 @@ theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/defau
 
 theme.wallpaper = "~/.config/awesome/current-wallpaper"
 
--- You can use your own layout icons like this:
-theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max = "/usr/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft   = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile = "/usr/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
-theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
-theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
+icon_dir = os.getenv("HOME") .. "/.config/awesome/icons/"
 
-theme.awesome_icon = "~/.config/awesome/icons/awesome19.png"
+theme.layout_tile = icon_dir .. "tile.png"
+theme.layout_tilegaps = icon_dir .. "tilegaps.png"
+theme.layout_tileleft = icon_dir .. "tileleft.png"
+theme.layout_tilebottom = icon_dir .. "tilebottom.png"
+theme.layout_tiletop = icon_dir .. "tiletop.png"
+theme.layout_fairv = icon_dir .. "fairv.png"
+theme.layout_fairh = icon_dir .. "fairh.png"
+theme.layout_spiral = icon_dir .. "spiral.png"
+theme.layout_dwindle = icon_dir .. "dwindle.png"
+theme.layout_max = icon_dir .. "max.png"
+theme.layout_fullscreen = icon_dir .. "fullscreen.png"
+theme.layout_magnifier = icon_dir .. "magnifier.png"
+theme.layout_floating = icon_dir .. "floating.png"
+
+theme.layout_uselesstile = icon_dir .. "tile.png"
+theme.layout_uselesstileleft = icon_dir .. "tileleft.png"
+theme.layout_uselesstilebottom = icon_dir .. "tilebottom.png"
+
+theme.awesome_icon = icon_dir .. "awesome19.png"
+theme.widget_mem = icon_dir .. "mem.png"
+theme.arrl = icon_dir .. "arrl.png"
+theme.arrl_dl = icon_dir .. "arrl_dl.png"
+theme.arrl_ld = icon_dir .. "arrl_ld.png"
+
+theme.widget_ac = icon_dir .. "ac.png"
+theme.widget_battery = icon_dir .. "battery.png"
+theme.widget_battery_low = icon_dir .. "battery_low.png"
+theme.widget_battery_empty = icon_dir .. "battery_empty.png"
+theme.widget_mem = icon_dir .. "mem.png"
+theme.widget_cpu = icon_dir .. "cpu.png"
+theme.widget_temp = icon_dir .. "temp.png"
+theme.widget_net = icon_dir .. "net.png"
+theme.widget_hdd = icon_dir .. "hdd.png"
+theme.widget_music = icon_dir .. "note.png"
+theme.widget_music_on = icon_dir .. "note_on.png"
+theme.widget_vol = icon_dir .. "vol.png"
+theme.widget_vol_low = icon_dir .. "vol_low.png"
+theme.widget_vol_no = icon_dir .. "vol_no.png"
+theme.widget_vol_mute = icon_dir .. "vol_mute.png"
+theme.widget_mail = icon_dir .. "mail.png"
+theme.widget_mail_on = icon_dir .. "mail_on.png"
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
