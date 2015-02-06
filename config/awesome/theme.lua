@@ -13,10 +13,14 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#666666"
 
-theme.border_width  = "2"
+theme.border_width  = "1"
 theme.border_normal = "#373832"
 theme.border_focus  = "#75715e"
 theme.border_marked = "#91231c"
+theme.textbox_widget_margin_top = 1
+theme.awful_widget_height = 14
+theme.awful_widget_margin_top = 2
+theme.useless_gap_width = "0"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -36,7 +40,7 @@ theme.taglist_squares_unsel = "~/.config/awesome/squarew.png"
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
-theme.menu_height = 15
+theme.menu_height = 20
 theme.menu_width  = 120
 
 -- You can add as many variables as

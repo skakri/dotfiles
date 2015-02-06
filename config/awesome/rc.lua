@@ -11,6 +11,8 @@ local vicious = require("vicious")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+-- Widgets, layouts, utility functions
+local lain = require("lain")
 
 local PATH = awful.util.getdir("config")
 
@@ -54,15 +56,16 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod1"
+modkey = "Mod4"
+-- Alt Mod1
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
     awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    lain.layout.uselesstile,
+    lain.layout.uselesstile.left,
+    lain.layout.uselesstile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
@@ -276,7 +279,11 @@ globalkeys = awful.util.table.join(
 --              end),
     awful.key({ }, "Print", function () awful.util.spawn("scrot -q 100 -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'") end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- On the fly useless gaps change
+    awful.key({ modkey, "Shift" }, "]", function () lain.util.useless_gaps_resize(1) end),
+    awful.key({ modkey, "Shift" }, "[", function () lain.util.useless_gaps_resize(-1) end)
 )
 
 clientkeys = awful.util.table.join(
