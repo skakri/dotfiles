@@ -128,6 +128,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Other software
 #
 
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # virtualenvwrapper project home.
 export PROJECT_HOME=~/projects
 
@@ -294,3 +297,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 [[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
