@@ -119,6 +119,17 @@ bindkey '^[[d' song-prev
 bindkey '^[[c' song-next
 
 #
+# Other zsh line editor macros.
+#
+
+insert-sudo () {
+    zle beginning-of-line; zle -U "sudo "
+}
+
+zle -N insert-sudo
+bindkey "^@" insert-sudo  # Control + Space.
+
+#
 # Plugins
 #
 
