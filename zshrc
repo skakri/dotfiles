@@ -176,9 +176,7 @@ ttyctl -f
 
 alias ls='ls --color=auto'
 alias info='pinfo'
-
-# TODO: Maybe move this to .ttytterrc?
-alias ttytter='ttytter -dostream -ssl -ansi -readline -hold'
+alias bc='bc -l'
 
 function wlan1-30dbm {
     sudo iw reg set BO
