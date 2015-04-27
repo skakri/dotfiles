@@ -220,7 +220,7 @@ function cy { # check yourself before you wreck yourself
 }
 
 function pngsplease {
-    mkdir -p converted; rm -fI converted/*.png && find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
+    mkdir -p converted; rm -fI converted/*.png; find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
 }
 
 zipedit(){
