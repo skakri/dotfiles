@@ -171,6 +171,17 @@ export LESSOPEN='|~/.lessfilter %s'
 ttyctl -f
 
 #
+# File type handling.
+#
+
+alias -s zip=dtrx
+alias -s tar=dtrx
+alias -s tar.gz=dtrx
+alias -s tar.bz2=dtrx
+alias -s xz=dtrx
+alias -s rar=dtrx
+
+#
 # Functions and aliases
 #
 
