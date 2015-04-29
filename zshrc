@@ -177,6 +177,7 @@ ttyctl -f
 alias ls='ls --color=auto'
 alias info='pinfo'
 alias bc='bc -l'
+alias rdate='TZ="Europe/Riga" date'
 
 function wlan1-30dbm {
     sudo iw reg set BO
