@@ -51,7 +51,8 @@ end
 beautiful.init(PATH .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv ("AWESOME_TERM") or "xterm"
+terminal = os.getenv("AWESOME_TERM") or "xterm"
+is_work_env = os.getenv("AWESOME_ENV") == "work"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -91,7 +92,13 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "term", "web", "dev", "media", "gaming", 6, 7, 8, 9 }, s, layouts[1])
+
+    -- Split out different environments.
+    if is_work_env then
+        tags[s] = awful.tag({ "term", "web", "dev", 4, 5, 6, 7, 8, "media" }, s, layouts[1])
+    else
+        tags[s] = awful.tag({ "term", "web", "dev", "gaming", 5, 6, 7, 8, "media" }, s, layouts[1])
+    end
 end
 -- }}}
 
