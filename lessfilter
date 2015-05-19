@@ -2,7 +2,8 @@
 # https://superuser.com/a/337640/39302
 case "$1" in
     *.awk|*.js|*.coffee|*.css|*.php|*.pl|*.sh|\
-    *.inc|*.xml|*.diff|*.patch|*.py|*.rb|*.sql)
+    *.inc|*.xml|*.diff|*.patch|*.py|*.rb|*.sql|\
+    *.haml)
         pygmentize -f 256 "$1";;
     .bashrc|.bash_aliases|.bash_environment)
         pygmentize -f 256 -l sh "$1"
