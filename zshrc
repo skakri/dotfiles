@@ -142,6 +142,9 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Autoenv
+[[ -x /usr/share/autoenv-git/activate.sh ]] && source /usr/share/autoenv-git/activate.sh
+
 # virtualenvwrapper project home.
 export PROJECT_HOME=~/projects
 
