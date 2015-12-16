@@ -14,6 +14,6 @@
     switch = !legit switch
     resync = !legit resync
     cloc = !cloc $(git ls-files)
-    activity = "!git-cal --author='$(git config --get user.name)'; git-summary; git-commits-since yesterday"
+    activity = "!git-cal --author='$(git config --get user.name)'; git-summary; git-commits-since yesterday | cat"
 [push]
     default = simple
