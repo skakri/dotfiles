@@ -222,14 +222,6 @@ function p {
     v $1 && python manage.py shell
 }
 
-function activity {
-    FULLNAME=$(git config --get user.name)
-    git-cal --author=${FULLNAME}
-    git-summary
-    git-commits-since yesterday
-    # pivotal_tools show stories --for=${FULLNAME}
-}
-
 function cy { # check yourself before you wreck yourself
     flake8 --max-complexity 8 $1
 }

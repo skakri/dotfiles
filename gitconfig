@@ -1,0 +1,19 @@
+[user]
+    name = Kristaps Karlsons
+    email = kristaps.karlsons@gmail.com
+[core]
+    excludesfile = /home/skakri/.gitignore_global
+[alias]
+    branches = !legit branches
+    graft = !legit graft
+    harvest = !legit harvest
+    publish = !legit publish
+    unpublish = !legit unpublish
+    sprout = !legit sprout
+    sync = !legit sync
+    switch = !legit switch
+    resync = !legit resync
+    cloc = !cloc $(git ls-files)
+    activity = "!git-cal --author='$(git config --get user.name)'; git-summary; git-commits-since yesterday"
+[push]
+    default = simple
