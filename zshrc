@@ -193,6 +193,10 @@ alias info='pinfo'
 alias bc='bc -l'
 alias rdate='TZ="Europe/Riga" date'
 
+function b {
+    iptables -I INPUT -s "$1" -j DROP;
+}
+
 function wlan1-30dbm {
     sudo iw reg set BO
     sudo iwconfig wlan1 txpower 30
