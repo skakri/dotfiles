@@ -16,6 +16,7 @@ xmodmap -e "keycode 66 = BackSpace"
 # Misc.
 start-pulseaudio-x11
 xbindkeys
+eval $(ssh-agent)
 
 # Initialize awesomeness
 exec awesome
