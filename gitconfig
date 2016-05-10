@@ -17,3 +17,7 @@
     activity = "!git-cal --author='$(git config --get user.name)'; git-summary; git-commits-since yesterday | cat"
 [push]
     default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
