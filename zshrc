@@ -4,6 +4,12 @@
 
 [[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
 
+# Load autocompletion files.
+
+for f in ~/.config/autocompletion/*; do
+    . "$f"
+done
+
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
