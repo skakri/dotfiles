@@ -14,6 +14,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename ~/.zshrc
+zstyle ':completion:*' rehash true
 
 autoload -Uz compinit
 compinit
