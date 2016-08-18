@@ -197,7 +197,7 @@ alias -s rar=dtrx
 
 alias ls='ls --color=auto'
 alias info='pinfo'
-alias bc='bc -l'
+alias bc='bc -lq'
 alias rdate='TZ="Europe/Riga" date'
 
 function b {
