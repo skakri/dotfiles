@@ -1,0 +1,7 @@
+*virtualenv*
+.idea
+.ipynb_checkpoints
+.erdconfig
+config/secrets.yml
+erd.pdf
+*.pid
