@@ -21,6 +21,7 @@ call vundle#end()
 filetype plugin indent on
 colorscheme slate
 
+set mouse=a
 set gdefault
 set ignorecase
 set smartcase
