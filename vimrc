@@ -1,10 +1,11 @@
 " Vundle
 set nocompatible
 filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
