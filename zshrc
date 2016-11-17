@@ -108,14 +108,19 @@ bindkey '^[Ob' volume-down
 #
 
 function song-prev {
-    mpc prev --quiet
+    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 }
 
 function song-next {
-    mpc next --quiet
+    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+}
+
+function song-play-pause {
+    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 }
 zle -N song-prev
 zle -N song-next
+zle -N song-play-pause
 
 # roxterm
 bindkey ';6D' song-prev
@@ -124,6 +129,7 @@ bindkey ';6C' song-next
 # urxvt
 bindkey '^[[d' song-prev
 bindkey '^[[c' song-next
+bindkey '^[[b' song-play-pause
 
 #
 # Other zsh line editor macros.
