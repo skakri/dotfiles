@@ -79,7 +79,10 @@ bindkey '^[Oc' emacs-forward-word
 export WORDCHARS=''
 
 #
-# Shift+uarr/darr volume control
+# Volume controls.
+#
+# control-up            Volume +2%
+# control-down          Volume -2%
 #
 
 function volume-up {
@@ -101,10 +104,12 @@ bindkey ';5B' volume-down
 bindkey '^[Oa' volume-up
 bindkey '^[Ob' volume-down
 
-# TODO: split out Master/MPD volume controls?
-
 #
-# Shift+larr/rarr prev/next song (MPD)
+# Spotify controls.
+#
+# control-shift-down    Play/Pause
+# control-shift-left    Previous song
+# control-shift-right   Next song
 #
 
 function song-prev {
