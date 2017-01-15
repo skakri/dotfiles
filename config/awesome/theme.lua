@@ -1,6 +1,6 @@
 theme = {}
 
-theme.font          = "Terminus 9"
+theme.font          = "xos4 Terminus 9"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#666666"
