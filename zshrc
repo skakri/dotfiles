@@ -210,6 +210,7 @@ alias ls='ls --color=auto'
 alias info='pinfo'
 alias bc='bc -lq'
 alias rdate='TZ="Europe/Riga" date'
+alias reset++='echo -e "\e<"; reset; stty sane; tput rs1; clear; echo -e "\033c"'
 
 function b {
     iptables -I INPUT -s "$1" -j DROP;
