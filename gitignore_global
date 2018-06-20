@@ -1,3 +1,4 @@
+__pycache__
 *virtualenv*
 .idea
 .ipynb_checkpoints
@@ -5,3 +6,5 @@
 config/secrets.yml
 erd.pdf
 *.pid
+cmake-build-debug/
+.coverage
