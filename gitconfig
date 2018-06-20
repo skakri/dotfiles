@@ -1,6 +1,6 @@
 [user]
-    name = Kristaps Karlsons
-    email = kristaps.karlsons@gmail.com
+	name = Kristaps Karlsons
+	email = kristaps.karlsons@gmail.com
 [core]
     excludesfile = /home/skakri/.gitignore_global
 [alias]
