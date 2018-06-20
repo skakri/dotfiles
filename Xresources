@@ -1,3 +1,11 @@
+Xft.dpi: 122
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 URxvt.perl-ext-common: default,matcher,clipboard,vtwheel,font-size,selection-pastebin
 URxvt.termName:                       rxvt-256color
 URxvt.iso14755: false
@@ -71,8 +79,8 @@ URxvt.color15:                        #EEEEEC
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt.font:                           xft:xos4 Terminus:pixelsize=12
-URxvt.boldFont:                       xft:xos4 Terminus:pixelsize=12
+URxvt.font:                           xft:xos4 Terminus:pixelsize=14
+URxvt.boldFont:                       xft:xos4 Terminus:pixelsize=14
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
 ! URxvt*intensityStyles:                boolean
