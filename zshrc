@@ -136,6 +136,13 @@ bindkey '^[[d' song-prev
 bindkey '^[[c' song-next
 bindkey '^[[b' song-play-pause
 
+# Git
+function run-tig () {
+    tig <$TTY; zle redisplay;
+}
+zle -N run-tig
+bindkey '^[\' run-tig
+
 #
 # Other zsh line editor macros.
 #
