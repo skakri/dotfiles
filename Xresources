@@ -153,3 +153,45 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 URxvt.keysym.C-C:   perl:clipboard:copy
 URxvt.keysym.C-V:   perl:clipboard:paste
 
+! === rofi ===
+
+rofi.modi:                           ssh
+rofi.sidebar-mode:                   true
+rofi.terminal:                       urxvt
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+rofi.opacity:                        100
+rofi.width:                          50
+rofi.lines:                          8
+rofi.columns:                        1
+rofi.font:                           Fira Code 10
+rofi.fg:                             #5294E2
+rofi.bg:                             #272822
+rofi.fg-active:                      #34405a
+rofi.fg-urgent:                      #34405a
+rofi.hlfg-active:                    #8e73a0
+rofi.hlfg-urgent:                    #8e73a0
+rofi.bg-active:                      #272822
+rofi.bg-urgent:                      #34405a
+rofi.hlbg-active:                    #272822
+rofi.hlbg-urgent:                    #5d729f
+rofi.bgalt:                          #5671a0
+rofi.hlfg:                           #34405a
+rofi.hlbg:                           #34405a
+rofi.bc:                             #789ee1
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #272822,  #FFFFFF,  #272822,  #472822,  #FFFFFF
+
+!                  'background', 'border'
+rofi.color-window: #272822,      #75715e
+rofi.bw:                             1
+rofi.location:                       0
+rofi.padding:                        5
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.fuzzy:                          false
+rofi.line-margin:                    2
+rofi.separator-style:                solid
+rofi.hide-scrollbar:                 true
+rofi.markup-rows:                    false
+rofi.scrollbar-width:                8
