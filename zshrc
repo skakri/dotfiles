@@ -143,6 +143,19 @@ function run-tig () {
 zle -N run-tig
 bindkey '^[\' run-tig
 
+# Misc
+function d2 {
+    python -c "print('int: {0:d}\nhex: 0x{0:x}\nbin: 0b{0:b}'.format($1))"
+}
+
+function d2b {
+    python -c "print('0b{0:b}'.format($1))"
+}
+
+function d2h {
+    python -c "print('0x{0:x}'.format($1))"
+}
+
 #
 # Other zsh line editor macros.
 #
