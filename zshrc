@@ -112,12 +112,45 @@ bindkey '^[Ob' volume-down
 # control-shift-right   Next song
 #
 
+function song-info {
+	[[ -o zle ]] && zle -R
+	echo
+	sleep 0.2 # Delay for songs to switch, probably there's a better option
+	
+	dbus-send --session --type=method_call --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata | awk '
+		/string  *"xesam:artist/{
+			while (1) {
+				getline line
+				if (line ~ /string "/){
+					sub(/.*string "/, "", line)
+					sub(/".*$/, "", line)
+					print line
+					break
+				}
+			}
+		}
+		/string  *"xesam:title/{
+			while (1) {
+				getline line
+				if (line ~ /string "/){
+					sub(/.*string "/, "", line)
+					sub(/".*$/, "", line)
+					print line
+					break
+				}
+			}
+		}
+	'
+	zle redisplay
+}
+
+
 function song-prev {
-    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous && song-info
 }
 
 function song-next {
-    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next && song-info
 }
 
 function song-play-pause {
