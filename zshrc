@@ -189,6 +189,10 @@ function d2h {
     python -c "print('0x{0:x}'.format($1))"
 }
 
+function h2a {
+    echo "$@" | xxd -r -p
+}
+
 #
 # Other zsh line editor macros.
 #
