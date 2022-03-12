@@ -1,6 +1,6 @@
 [submodule "config/awesome/vicious"]
 	path = config/awesome/vicious
-	url = http://git.sysphere.org/vicious
+	url = https://github.com/vicious-widgets/vicious.git
 [submodule "config/awesome/blingbling"]
 	path = config/awesome/blingbling
 	url = https://github.com/cedlemo/blingbling.git
@@ -12,7 +12,7 @@
 	url = https://github.com/muennich/urxvt-perls.git
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "config/awesome/lain"]
 	path = config/awesome/lain
 	url = https://github.com/copycat-killer/lain.git
