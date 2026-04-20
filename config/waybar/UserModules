@@ -1,0 +1,9 @@
+//* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
+/* Waybar Modules Extras */
+
+/* This is where you can add extra modules if you want local extensions. */
+/* IMPORTANT, be mindful with , or ". else waybar will not start */
+
+{
+
+}

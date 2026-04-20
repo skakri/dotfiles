@@ -1,4 +1,5 @@
 config/awesome/current-wallpaper
 config/chromium
+config/hypr/monitors.local.conf
 urxvt/ext/*
 urxvt/submodules/*

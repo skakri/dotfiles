@@ -1,0 +1,61 @@
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  #
+
+# you can choose themes from $HOME/.config/kitty/kitty-themes/
+include ./kitty-themes/00-Default.conf
+# font_family FantasqueSansM Nerd Font Mono Bold
+font_size 12.0
+# bold_font auto
+# italic_font auto
+# bold_italic_font auto
+
+background_opacity 1.0
+dynamic_background_opacity 0
+confirm_os_window_close 0
+
+# Animated cursor
+cursor_trail 0
+
+# change to x11 or wayland or leave auto
+linux_display_server auto
+
+scrollback_lines 20000
+wheel_scroll_min_lines 1
+
+enable_audio_bell no
+
+window_padding_width 4
+
+selection_foreground none
+selection_background none
+
+foreground #dddddd
+background #000000
+cursor #dddddd
+
+# Bright ANSI overrides for readable shell highlighting
+color1 #f7768e
+color2 #9ece6a
+color3 #e0af68
+color4 #7aa2f7
+color5 #bb9af7
+color6 #7dcfff
+color8 #6b7280
+color9 #ff7a93
+color10 #b9f27c
+color11 #f5c06a
+color12 #89b4fa
+color13 #c7a9ff
+color14 #8be9fd
+
+# Restore middle-click paste in kitty
+mouse_map middle release ungrabbed,grabbed paste_selection_or_clipboard
+mouse_map middle press grabbed discard_event
+copy_on_select clipboard
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="Victor Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS

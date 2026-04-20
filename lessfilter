@@ -1,21 +1,27 @@
 #!/bin/sh
 # https://superuser.com/a/337640/39302
+
+# Use a higher-contrast dark-terminal palette; the default style emits a very
+# dark blue for some tokens, which is hard to read on dark backgrounds.
+highlight() {
+    pygmentize -f 256 -O style=one-dark "$@"
+}
+
 case "$1" in
     *.awk|*.js|*.coffee|*.css|*.php|*.pl|*.sh|\
     *.inc|*.xml|*.diff|*.patch|*.py|*.rb|*.sql|\
-    *.haml|*.c*|*.h)
-        pygmentize -f 256 "$1";;
+    *.haml|*.md|*.markdown|*.c*|*.h)
+        highlight "$1";;
     .bashrc|.bash_aliases|.bash_environment)
-        pygmentize -f 256 -l sh "$1"
+        highlight -l sh "$1"
         ;;
     *)
         grep "#\!/bin/bash" "$1" > /dev/null
         if [ "$?" -eq "0" ]; then
-            pygmentize -f 256 -l sh "$1"
+            highlight -l sh "$1"
         else
             exit 1
         fi
 esac
 
 exit 0
-

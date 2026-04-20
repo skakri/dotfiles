@@ -1,0 +1,73 @@
+# Dark, low-glare theme aligned with the terminal palette used for less/pygments.
+
+# Core UI
+color default           default default
+color cursor            default 236
+color status            244     default
+color title-focus       249     default bold
+color title-blur        241     default
+color search-result     221     default bold
+color delimiter         240     default
+color header            110     default bold
+color line-number       241     default
+color id                244     default
+color date              145     default
+color author            110     default
+color mode              241     default
+color overflow          240     default
+color directory         110     default bold
+color file              249     default
+color file-size         244     default
+
+# Main view
+color graph-commit      81      default
+color main-commit       249     default
+color main-annotated    221     default
+color main-head         108     default bold
+color main-remote       110     default
+color main-tracked      81      default
+color main-tag          214     default bold
+color main-local-tag    180     default
+color main-ref          145     default
+color main-replace      203     default
+
+# Branch/graph palette
+color palette-0         81      default
+color palette-1         110     default
+color palette-2         108     default
+color palette-3         180     default
+color palette-4         214     default
+color palette-5         145     default
+color palette-6         203     default
+color palette-7         221     default
+color palette-8         81      default bold
+color palette-9         110     default bold
+color palette-10        108     default bold
+color palette-11        180     default bold
+color palette-12        214     default bold
+color palette-13        203     default bold
+
+# Status view
+color stat-none         241     default
+color stat-staged       108     default bold
+color stat-unstaged     214     default bold
+color stat-untracked    110     default bold
+
+# Help view
+color help-group        110     default bold
+color help-action       249     default
+
+# Diff view
+color diff-header       145     default
+color diff-chunk        110     default
+color diff-stat         145     default
+color diff-index        244     default
+color diff-add          108     default
+color diff-add2         114     default
+color diff-del          203     default
+color diff-del2         204     default
+color diff-add-highlight 108    default bold
+color diff-del-highlight 203    default bold
+color diff-oldmode      214     default
+color diff-newmode      108     default
+color diff-similarity   180     default

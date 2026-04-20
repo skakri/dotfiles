@@ -76,6 +76,10 @@ bindkey ';5C' emacs-forward-word
 bindkey '^[Od' emacs-backward-word
 bindkey '^[Oc' emacs-forward-word
 
+# kitty
+bindkey '^[[1;5D' emacs-backward-word
+bindkey '^[[1;5C' emacs-forward-word
+
 export WORDCHARS=''
 
 #
@@ -97,12 +101,16 @@ zle -N volume-up
 zle -N volume-down
 
 # roxterm
-bindkey ';5A' volume-up 
+bindkey ';5A' volume-up
 bindkey ';5B' volume-down
 
 # urxvt
 bindkey '^[Oa' volume-up
 bindkey '^[Ob' volume-down
+
+# kitty
+bindkey '^[[1;5A' volume-up
+bindkey '^[[1;5B' volume-down
 
 #
 # Spotify controls.
@@ -144,7 +152,6 @@ function song-info {
 	zle redisplay
 }
 
-
 function song-prev {
     dbus-send --session --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous && song-info
 }
@@ -169,12 +176,20 @@ bindkey '^[[d' song-prev
 bindkey '^[[c' song-next
 bindkey '^[[b' song-play-pause
 
+# kitty (shift-left, ..)
+bindkey '^[[1;2D' song-prev
+bindkey '^[[1;2C' song-next
+bindkey '^[[1;2B' song-play-pause
+
 # Git
 function run-tig () {
     tig <$TTY; zle redisplay;
 }
 zle -N run-tig
 bindkey '^[\' run-tig
+
+# kitty
+bindkey '^_' run-tig
 
 # Misc
 function d2 {
@@ -208,20 +223,22 @@ bindkey "^@" insert-sudo  # Control + Space.
 # Plugins
 #
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -r "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+elif [ -r "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
-#
-# Other software
-#
+# Bright zsh syntax-highlighting overrides for dark kitty themes
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#9ece6a,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#e0af68,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#7dcfff,underline'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#bb9af7,underline'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#7aa2f7'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#7aa2f7'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#6b7280'
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Autoenv
-[[ -x /usr/share/autoenv-git/activate.sh ]] && source /usr/share/autoenv-git/activate.sh
-
-# virtualenvwrapper project home.
-export PROJECT_HOME=~/projects
 
 #
 # Language settings
@@ -234,15 +251,11 @@ export LC_ALL=lv_LV.utf8
 # Environment variables and quirks
 #
 
-#export _JAVA_AWT_WM_NONREPARENTING=1
-export PYCHARM_JDK=/opt/java/jre
-export PERL_LOCAL_LIB_ROOT="$HOME/perl5";
-export PERL_MB_OPT="--install_base $HOME/perl5";
-export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5";
-export PERL5LIB="$HOME/perl5/lib/perl5/x86_64-linux-thread-multi:$HOME/perl5/lib/perl5";
-export PATH="$HOME/perl5/bin:$HOME/bin:$PATH";
 export EDITOR=vim
-export LESS='-R -N'
+# Keep line numbers visible without letting the gutter dominate the content.
+export LESS='-R -N --use-color -DN241 -DP-'
+# Keep man pages at their formatted width; a line-number gutter makes them wrap.
+export MANPAGER='less -R -n'
 export LESSOPEN='|~/.lessfilter %s'
 
 # yaourt/zsh fix? https://github.com/archlinuxfr/yaourt/issues/11#issuecomment-44888428
@@ -263,101 +276,20 @@ alias -s rar=dtrx
 # Functions and aliases
 #
 
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
 alias ls='ls --color=auto'
 alias info='pinfo'
 alias bc='bc -lq'
 alias rdate='TZ="Europe/Riga" date'
 alias reset++='echo -e "\e<"; reset; stty sane; tput rs1; clear; echo -e "\033c"'
 
-function b {
-    iptables -I INPUT -s "$1" -j DROP;
-}
-
-function wlan1-30dbm {
-    sudo iw reg set BO
-    sudo iwconfig wlan1 txpower 30
-}
-
-function rand-ident {
-    hostname
-    sudo hostname `pwgen -A -0 10 1`
-    hostname
-    macchanger -s wlan1
-    sudo macchanger -r wlan1
-}
-
-function switch_to_project {
-    cd ~/projects/$1
-}
-
-function activate_project {
-    [[ -x /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh && workon $1
-}
-
-function v {
-    switch_to_project $1 && activate_project $1
-}
-
-function p {
-    v $1 && python manage.py shell
-}
-
-function cy { # check yourself before you wreck yourself
-    flake8 --max-complexity 8 $1
-}
-
-function pngsplease {
-    mkdir -p converted; rm -fI converted/*.png; find * -type f -print | xargs -i convert {}[0] converted/{}.png && cd converted && feh ./*.png
-}
-
-zipedit(){
-    echo "Usage: zipedit archive.zip folder/file.txt"
-    curdir=$(pwd)
-    unzip "$1" "$2" -d /tmp 
-    cd /tmp
-    vim "$2" && zip --update "$curdir/$1"  "$2" 
-    # remove this line to just keep overwriting files in /tmp
-    rm -f "$2" # or remove -f if you want to confirm
-    cd "$curdir"
-}
-
-function man {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
-}
-
-function f {
-    grep --color=auto -iR "$1" $2
-}
-
- streaming() {
-    INRES="1920x1080"
-    OUTRES="1920x1080"
-    FPS="60" # target FPS
-    GOP="120" # i-frame interval, should be double of FPS, 
-    GOPMIN="60" # min i-frame interval, should be equal to fps, 
-    THREADS="4" # max 6
-    CBR="2000k" # constant bitrate (should be between 1000k - 3000k)
-    QUALITY="ultrafast"  # one of the many FFMPEG preset
-    AUDIO_RATE="44100"
-    STREAM_KEY="$1" # use the terminal command Streaming streamkeyhere to stream your video to twitch or justin
-    SERVER="live-prg" # see http://bashtech.net/twitch/ingest.php for list
-
-    ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f pulse -i default -f flv -ac 2 -ar $AUDIO_RATE \
-    -vcodec libx264 -g $GOP -keyint_min $GOPMIN -b $CBR -minrate $CBR -maxrate $CBR -pix_fmt yuv420p\
-    -s $OUTRES -preset $QUALITY -tune film -acodec libmp3lame -threads $THREADS -strict normal \
-    -bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
- }
-
-alias lock='xscreensaver-command -lock'
-alias dl='aria2c'
-alias spr='google-chrome-unstable --show-paint-rects'
 alias noblank='xset -dpms; xset s off'
 alias blank='xset +dpms; xset s on'
 
@@ -379,7 +311,7 @@ zstyle ':vcs_info:*' enable git
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
     git status --porcelain | grep '??' &> /dev/null ; then
     hook_com[unstaged]+='%F{1}??%f'
-  fi  
+  fi
 }
 
 precmd () { vcs_info }
@@ -388,10 +320,19 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     PROMPT="remote // $HOST $PROMPT"
 fi
 
-BASE16_SCHEME="monokai"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-
 [[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi

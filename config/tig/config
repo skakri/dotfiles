@@ -1,0 +1,4 @@
+# Keep the palette deterministic instead of inheriting Git's color mappings.
+set git-colors = no
+
+source ~/.config/tig/colorscheme.tigrc
